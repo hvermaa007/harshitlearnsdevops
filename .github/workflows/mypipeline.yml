@@ -1,0 +1,31 @@
+name: NODEJS CI
+on: [push, pull_request]
+jobs:
+  build:
+    runs-on: self-hosted
+
+    steps:
+
+    
+      - name: "Hello"
+        run: echo "HI welcome to Testing"
+      - name: Install Dependencies
+        run: npm i
+        # | pipe is used to run multiple commands 
+      - name: Run Test with Coverage   
+        run: | 
+           npm install --save-dev jest-junit
+           npx jest --coverage --ci --reporters=default --reporters=jest-junit
+           #npx jest --coverage --ci --reporters=default --reporters=jest-junit --coverageThreshold='{"global": {"branches":80,"functions":80,"lines":80,"statements":80}}'
+      - name: Upload coverage report
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-report
+          path: coverage/
+      - name: Upload JUnit test results
+        uses: actions/upload-artifact@v4
+        with:
+          name: junit-results
+          path: junit.xml
+      - name: Run ESLint
+        run: npx eslint
