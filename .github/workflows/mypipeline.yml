@@ -13,6 +13,7 @@ jobs:
     - name: "Hello"
       run: echo "HI welcome to Testing"
     - name: Install Dependencies
+      continue-on-error: true
       run: npm i
         # | pipe is used to run multiple commands 
     - name: Run Test with Coverage   
