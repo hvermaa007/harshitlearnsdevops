@@ -1,3 +1,11 @@
+const { server, close } = require('./server');
+const request = require('supertest');
+
+describe('HTTP Server', () => {
+  afterAll(async () => {
+    // Close the server after all tests
+    await new Promise(resolve => close(resolve));
+  });
 const request = require('supertest');
 const http = require('http');
 const fs = require('fs');
