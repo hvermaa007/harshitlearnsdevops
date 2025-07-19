@@ -17,6 +17,7 @@ jobs:
         # | pipe is used to run multiple commands 
     - name: Run Test with Coverage   
       continue-on-error: true
+
       run: | 
            npm install --save-dev jest-junit
            npx jest --coverage --ci --reporters=default --reporters=jest-junit
