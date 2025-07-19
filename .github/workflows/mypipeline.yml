@@ -45,6 +45,5 @@ jobs:
             -Dsonar.projectKey=hvermaa007_harshitlearnsdevops
             -Dsonar.organization=hvermaa007
             -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info
-
-           env:
-            SONAR_TOKEN: 'f802865a762002f0778a09a9aa6db133ad1ee928'
+      env:
+        SONAR_TOKEN: 'f802865a762002f0778a09a9aa6db133ad1ee928'
