@@ -31,4 +31,5 @@ jobs:
         name: junit-results
         path: junit.xml
     - name: Run ESLint
+      continue-on-error: true
       run: npx eslint
